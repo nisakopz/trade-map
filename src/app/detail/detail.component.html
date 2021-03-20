@@ -1,16 +1,6 @@
-<!-- <agm-map></agm-map> -->
-<!-- <agm-map [latitude]="lat" [longitude]="lng" [mapTypeId]="'terrain'" [zoom]="2" 
-(mapRightClick)="onRightClick($event)"></agm-map> -->
+
 <google-chart style="width: 100%;width: 70%;margin: 0 auto;" [type]="chartType" [data]="geoChartData" [options]="options"  (click)="onClickCountry($event)"   [columns]="chartColumns"
 > </google-chart>
-
-<!-- <div id="regions_div" style="width: 900px; height: 500px;"></div> -->
-<!-- 
-<div id="target" class="menu" [hidden]="!showDialog">
-    <div (click)="onClickExportTrade()">İhracat Yap</div>
-    <div (click)="onClickImportTrade()">İthalat Yap</div>
-    <div (click)="removeInformation()">Bilgileri Sil</div>
-</div> -->
 
 <div>
     <ul class="square-list">

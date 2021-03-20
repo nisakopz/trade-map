@@ -8,7 +8,7 @@ import { UserService } from '../shared/services/user.service';
   styleUrls: ['./auth.component.scss']
 })
 export class AuthComponent implements OnInit {
-  public gapiSetup: boolean = false; // marks if the gapi library has been loaded
+  public gapiSetup: boolean = false;
   public authInstance: gapi.auth2.GoogleAuth;
   public user: gapi.auth2.GoogleUser;
   constructor(private readonly router: Router,

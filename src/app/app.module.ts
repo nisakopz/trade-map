@@ -4,7 +4,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
-import { AgmCoreModule } from '@agm/core';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 
@@ -36,9 +35,6 @@ import { ApiInterceptor } from './shared/api-interceptor';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyADgo8KFxImuq34kqrEi8oZbLf576T2Hr0'
-    }),
     GoogleChartsModule.forRoot(
       {
         mapsApiKey: 'AIzaSyADgo8KFxImuq34kqrEi8oZbLf576T2Hr0'
@@ -48,8 +44,6 @@ import { ApiInterceptor } from './shared/api-interceptor';
     MatBottomSheetModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
-
-
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true }],
   bootstrap: [AppComponent]

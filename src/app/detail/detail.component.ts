@@ -17,16 +17,12 @@ import { MenuComponent } from './menu/menu.component';
 })
 export class DetailComponent implements OnInit, OnDestroy {
 
-  lat = 51.678418;
-  lng = 7.809007;
   chartType  = ChartType.GeoChart;
   allCountries = [];
   chartColumns= ['Country','value'];
-  geoChartData = [
-  ];
+  geoChartData = [];
 
-
-   options = {
+  options = {
     colorAxis: {
       colors: ['green', 'red'],
       values: [0,1]
@@ -37,8 +33,7 @@ export class DetailComponent implements OnInit, OnDestroy {
     keepAspectRatio: true,
     width:800,
     height:600,
-    // tooltip: { trigger: 'selection' }
-};
+ };
 
   allContinents = allContinents;
   selectedCountryCode = '';
@@ -68,7 +63,6 @@ export class DetailComponent implements OnInit, OnDestroy {
       }
     });
   }
-
 
   onClickCountry(event) {
     this.showDialog = true;

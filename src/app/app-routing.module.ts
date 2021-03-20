@@ -17,11 +17,8 @@ const routes: Routes = [
     component: ContinentComponent,
     canActivate:[AuthGuard]
   }, 
-  
-  
   {
     path: 'auth',
-    // canActivate:[AuthGuard],
     loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
   },
   { path: "", redirectTo: "/detail", pathMatch: "full" },
@@ -30,14 +27,7 @@ const routes: Routes = [
     path: 'logout',
     component: LogoutComponent,
     canActivate:[AuthGuard]
-  }, 
-
-  // {
-  //   path: 'trade',
-  //   canActivate:[AuthGuard],
-  //   loadChildren: () => import('./layout/layout.module').then(m => m.LayoutModule)
-  // }
-
+  }
 ];
 
 @NgModule({
