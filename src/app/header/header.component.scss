@@ -1,0 +1,96 @@
+@import 'extends';
+@import 'variables';
+
+.navbar {
+    background: $base-color;
+    height: 48px;
+}
+
+.header-container {
+    @extend %general-layout;
+    height: 100%;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    .user {
+        color:white;
+    }
+    .search {
+        height: 100%;
+        position: relative;
+        input {
+            border: none;
+            height: 100%;
+            -webkit-padding-start: 52px;
+            padding-inline-start: 52px;
+            position: relative;
+            border-radius: 14px;
+            &:focus {
+                outline: 0px !important;
+            }
+        }
+
+        &-icon {
+            height: 100%;
+            left: 12px;
+            position: absolute;
+            top: 8px;
+            font-size: 15px;
+            color: $base-color2;
+        }
+
+        ul {
+            list-style-type: none;
+            border: 1px solid #d0d0d0;
+            z-index: 50000;
+            position: absolute;
+            width: 100%;
+            border-radius: 6px;
+            border-bottom: 1px solid #b7b7b7;
+            background-color: white;
+            padding-left: 0px;
+            margin-top: 3px;
+
+            li {
+                color: #504f4f;
+                padding-left: 9px;   
+                font-size: 14px;
+                padding-top: 10px;
+                cursor: pointer;
+                padding-bottom: 10px;
+            }
+
+            li:not(:last-child){
+                border-bottom: 1px solid #b7b7b7;
+            }
+        }
+    }
+
+    .logout {
+        display: inline-block;
+        width: 80px;
+        height: 33px;
+        border: 1px solid $base-color2;
+        border-radius: 5px;
+        a {
+          cursor: pointer;
+          display: flex;
+          justify-content: center;
+          height: 33px;
+          width: 80px;
+          text-align: center;
+          line-height: 33px;
+          font-size: 11px;
+          letter-spacing: 0.83px;
+          color: #ffffff;
+          span {
+            font-size: 18px;
+            margin-right: 10px;
+            line-height: 33px;
+          }
+        }
+      }
+}
+
+

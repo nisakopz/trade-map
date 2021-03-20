@@ -1,0 +1,16 @@
+@import 'variables';
+ul {
+    list-style-type: none;
+    padding-left: 0px;
+    li {
+        cursor: pointer;
+        padding: 14px 0px;
+        text-align: center;
+        color: $base-color;
+        font-weight: 500;
+        &:not(:last-child) {
+            border-bottom: 1px solid #e8e7e7;
+        }
+    }
+}
+

@@ -1,0 +1,80 @@
+/* You can add global styles to this file, and also import other style files */ 
+  @font-face {
+    font-family: 'shbmaptrade';
+    src:  url('~/assets/icons/shbmaptrade.eot?u30ckh');
+    src:  url('~/assets/icons/shbmaptrade.eot?u30ckh#iefix') format('embedded-opentype'),
+      url('~/assets/icons/shbmaptrade.ttf?u30ckh') format('truetype'),
+      url('~/assets/icons/shbmaptrade.woff?u30ckh') format('woff'),
+      url('~/assets/icons/shbmaptrade.svg?u30ckh#shbmaptrade') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+  }
+  
+  [class^="shbtrade"], [class*=" shbtrade"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'shbmaptrade' !important;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+  
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .shbtradecheck-circle:before {
+    content: "\e909";
+  }
+  .shbtradegoogle .path1:before {
+    content: "\e902";
+    color: rgb(89, 195, 106);
+  }
+  .shbtradegoogle .path2:before {
+    content: "\e903";
+    margin-left: -1em;
+    color: rgb(0, 166, 108);
+  }
+  .shbtradegoogle .path3:before {
+    content: "\e904";
+    margin-left: -1em;
+    color: rgb(255, 218, 45);
+  }
+  .shbtradegoogle .path4:before {
+    content: "\e905";
+    margin-left: -1em;
+    color: rgb(64, 134, 244);
+  }
+  .shbtradegoogle .path5:before {
+    content: "\e906";
+    margin-left: -1em;
+    color: rgb(65, 117, 223);
+  }
+  .shbtradegoogle .path6:before {
+    content: "\e907";
+    margin-left: -1em;
+    color: rgb(255, 100, 26);
+  }
+  .shbtradegoogle .path7:before {
+    content: "\e908";
+    margin-left: -1em;
+    color: rgb(240, 56, 0);
+  }
+  .shbtradepower-off:before {
+    content: "\e901";
+  }
+  .shbtradesearch:before {
+    content: "\e900";
+  }  
+  
+  html, body { height: 100%; }
+  body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+  
+ path:hover { fill: orange; }
+ rect:hover {fill:transparent;}
+  
+
+

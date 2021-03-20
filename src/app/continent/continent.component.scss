@@ -1,0 +1,28 @@
+ul {
+    list-style-type: none;
+    li {
+        border: 1px solid orange;
+        border-radius: 12px;
+        padding: 10px 20px;
+        box-shadow: 1px 5px 7px #e4e4e4;
+        margin: 20px 0px;
+        display: flex;
+        align-items: center;
+
+        // .image {
+        //     align-items: center;
+        // }
+
+        .information {
+            display: flex;
+            flex-direction: column;
+            padding-left: 15px;
+            font-size: 14px;
+            .label {
+                color: #40485f;
+                font-weight: 500;
+            }
+        }
+    }
+}
+

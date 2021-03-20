@@ -1,0 +1,47 @@
+agm-map {
+    height: 500px;
+    width: 70%;
+  }
+
+
+  .menu {
+    width: 140px;
+    height: 100px;
+    background-color: #ccc;
+    position: absolute;
+    padding: 10px;
+    border: 1px solid #dadada;
+    box-shadow: 1px 1px 1px #bdbdbd;
+    color: black;
+    font-size: 14px;
+    div:not(:last-child) {
+      cursor: pointer;
+      margin: 5px 0px;
+      border-bottom: 1px solid #b7b7b7;
+    }
+  }
+
+  .square-list {
+      list-style-type: square;
+      li {
+        cursor: pointer;
+
+        &:focus {
+          outline: none;
+        }
+      }
+  }
+
+
+  .ratios {
+    width: 20%;
+    border: 1px solid #ead19b;
+    padding: 10px;
+    font-size: 14px;
+    box-shadow: 1px 2px 3px #e8e8e8;
+
+    .label{
+      color: #40485f;
+      font-weight: 500;
+    } 
+  }

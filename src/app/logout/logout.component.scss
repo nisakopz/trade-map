@@ -1,0 +1,26 @@
+@import "variables";
+.logout-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 400px;
+    text-align: center;
+    width: 50%;
+    margin: 0 auto;
+    color: white;
+    background-color: $base-color;
+    .link {
+        color:$base-color2;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    .icon-container {
+        margin-bottom: 40px;
+        .icon {
+            color: $base-color2;
+             font-size: 5rem;
+             cursor: pointer;
+        }
+    }
+}

@@ -1,0 +1,19 @@
+<nav class="navbar navbar-light " *ngIf="user" >
+    <div class="header-container">
+        <div class="user">{{user}}</div>
+        <div class="search">
+            <input type="text" [(ngModel)]="searchText" placeholder="Ülke ara" (input)="onInputChange($event)"/> 
+            <span class="shbtradesearch search-icon"></span>
+            <ul *ngIf="showSearchBox">
+                <li  *ngFor="let country of allCountries | search: searchText" (click)="onClickCountry(country.coode)" id="select-item">
+                  {{country.name}}
+                </li>
+              </ul>
+        </div>
+        <div class="logout">
+            <a href="javascript:void(0);" (click)="onLogOut()" class="notranslate">
+                <span class="shbtradepower-off"></span>Çıkış
+            </a>
+        </div>
+    </div>
+</nav>
