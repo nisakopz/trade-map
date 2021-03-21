@@ -8,13 +8,21 @@ import { TradeKey } from '../enums/trade-key.enum';
 export class ForeignTradeService {
   countrySelected = new Subject<string>();
   private _allTradeCountries = [];
+  private _allCountryNotes = []; 
+  constructor() { }
+
+  public get allCountryNotes() {
+    return this._allCountryNotes;
+  }
+  public set allCountryNotes(value) {
+    this._allCountryNotes = value;
+  }
   public get allTradeCountries() {
     return this._allTradeCountries;
   }
   public set allTradeCountries(value) {
     this._allTradeCountries = value;
   }
-  constructor() { }
   
   getCountriesByTradeKey(tradeKey: TradeKey): any[]{
     return this.allTradeCountries.filter((countries) => {
@@ -22,13 +30,4 @@ export class ForeignTradeService {
     })
   }
 
-  // getCountOfTheTradebyKey(tradeKey: TradeKey):number {
-  //   const selectedCountries = this.getCountriesByTradeKey(tradeKey);
-  //   const reducer = (accumulator, currentValue) =>  {
-      
-  //     return accumulator + currentValue[2] 
-  //   };
-  //   return selectedCountries.reduce(reducer,0);
-
-  // }
 }

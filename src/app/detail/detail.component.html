@@ -1,10 +1,10 @@
 
-<google-chart style="width: 100%;width: 70%;margin: 0 auto;" [type]="chartType" [data]="geoChartData" [options]="options"  (click)="onClickCountry($event)"   [columns]="chartColumns"
+<google-chart style="width: 100%" [type]="chartType" [data]="geoChartData" [options]="options"  (click)="onClickCountry($event)"   [columns]="chartColumns"
 > </google-chart>
 
 <div>
-    <ul class="square-list">
-        <li *ngFor="let continent of allContinents" [routerLink]="['/continent', continent.name]">{{continent.name}}</li>
+    <ul class="list">
+        <li *ngFor="let continent of allContinents" [routerLink]="['/continent', continent.name]" class="item"><span class="item-icon"></span>{{continent.name}}</li>
       </ul>
 </div>
 

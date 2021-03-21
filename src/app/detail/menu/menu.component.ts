@@ -16,7 +16,7 @@ export class MenuComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onClickItem(eventType: string){
+  onClickItem(eventType: EventType){
     this.bottomSheetRef.dismiss(eventType);
   }
 

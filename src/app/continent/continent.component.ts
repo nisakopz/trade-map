@@ -27,13 +27,16 @@ export class ContinentComponent implements OnInit {
         return;
       }
     });
-
     
     allCountriesOfContinent.forEach((countryName) => {
-      const continentInformation = new ContinentInformation(countryName,0,0);
+      const continentInformation = new ContinentInformation(countryName,0,0,'');
       const importCountries = this.foreignTradeService.getCountriesByTradeKey(TradeKey.IMPORT);
       const exportCountries = this.foreignTradeService.getCountriesByTradeKey(TradeKey.EXPORT);
-
+      const indexOfCountryNoteArray = this.foreignTradeService.allCountryNotes.findIndex((country) => countryName === country.name);
+      if(indexOfCountryNoteArray !== -1){
+        continentInformation.note = this.foreignTradeService.allCountryNotes[indexOfCountryNoteArray].note;
+      }  
+      
       exportCountries.forEach((exportCountry) => {
           if(exportCountry[0] === countryName){
             continentInformation.exportCount++;
@@ -48,6 +51,8 @@ export class ContinentComponent implements OnInit {
 
         this.allCountriesOfContinent.push(continentInformation);
     });
+
+
   }
 
   toLowerCase(name: string) {

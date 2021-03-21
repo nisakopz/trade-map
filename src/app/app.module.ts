@@ -18,6 +18,8 @@ import { SearchPipe } from './header/search.pipe';
 import { MenuComponent } from './detail/menu/menu.component';
 import { environment } from 'src/environments/environment';
 import { ApiInterceptor } from './shared/api-interceptor';
+import { NoteDialogComponent } from './detail/note-dialog/note-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -28,7 +30,8 @@ import { ApiInterceptor } from './shared/api-interceptor';
     ContinentComponent,
     LogoutComponent,
     SearchPipe,
-    MenuComponent
+    MenuComponent,
+    NoteDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +45,7 @@ import { ApiInterceptor } from './shared/api-interceptor';
     ),
     NoopAnimationsModule,
     MatBottomSheetModule,
+    MatDialogModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
   ],

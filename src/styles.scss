@@ -1,3 +1,5 @@
+@import 'variables';
+
 /* You can add global styles to this file, and also import other style files */ 
   @font-face {
     font-family: 'shbmaptrade';
@@ -75,6 +77,18 @@
   
  path:hover { fill: orange; }
  rect:hover {fill:transparent;}
+
+
+ .mat-dialog-actions {
+  justify-content: center;
+  margin-top: 14px;
+}
   
+.mat-dialog-content {
+  text-align: center;
+}
 
-
+.mat-dialog-title {
+  text-align: center;
+  color: $base-color;
+}

@@ -1,10 +1,14 @@
 
+<div class="return" [routerLink]="['/detail']">&larr; Detay Sayfasına Dön</div>
+
 <ul class="square-list">
     <li *ngFor="let country of allCountriesOfContinent">
         <span class="image"><img src="https://www.countryflags.io/{{toLowerCase(country.name)}}/flat/32.png"></span>
         <span class="information">
             <span><span class="label">İhracat Sayısı:</span> {{country.exportCount}}</span>
             <span><span class="label">İhtalat Sayısı:</span> {{country.importCount}}</span>
+            <span><span class="label">Not:</span> {{country.note}}</span>
+
         </span>
     </li>
   </ul>

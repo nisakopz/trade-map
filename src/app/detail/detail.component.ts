@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
+import { MatDialog } from '@angular/material/dialog';
 import { ChartType } from 'angular-google-charts';
 import { Subscription } from 'rxjs';
 
@@ -9,6 +10,7 @@ import { ForeignTradeService } from '../shared/services/foreign-trade-service.se
 import { UserService } from '../shared/services/user.service';
 import { EventType } from './menu/event-type.enum';
 import { MenuComponent } from './menu/menu.component';
+import { NoteDialogComponent } from './note-dialog/note-dialog.component';
 
 @Component({
   selector: 'app-detail',
@@ -21,6 +23,7 @@ export class DetailComponent implements OnInit, OnDestroy {
   allCountries = [];
   chartColumns= ['Country','value'];
   geoChartData = [];
+  countryNotes = [];
 
   options = {
     colorAxis: {
@@ -31,13 +34,12 @@ export class DetailComponent implements OnInit, OnDestroy {
     resolution: 'countries',
     region:'world',
     keepAspectRatio: true,
-    width:800,
-    height:600,
+    // width:800,
+    height:500,
  };
 
   allContinents = allContinents;
   selectedCountryCode = '';
-  showDialog = false;
   allImportCountries = [];
   allExportCountries = [];
 
@@ -48,7 +50,8 @@ export class DetailComponent implements OnInit, OnDestroy {
 
   constructor(private readonly foreignTradeService: ForeignTradeService,
     private readonly bottomSheet: MatBottomSheet,
-    private readonly userService: UserService) {}
+    private readonly userService: UserService,
+    public dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.countrySelectedSubscription = this.foreignTradeService.countrySelected.subscribe((countryCode: string) => {
@@ -62,10 +65,16 @@ export class DetailComponent implements OnInit, OnDestroy {
         this.foreignTradeService.allTradeCountries = this.geoChartData;
       }
     });
+
+    this.userService.fetchCountryNotes().subscribe((result) => {
+      if(result) {
+        this.countryNotes = result['allCountryNotes'];  
+        this.foreignTradeService.allCountryNotes = this.countryNotes;
+      }
+    });
   }
 
   onClickCountry(event) {
-    this.showDialog = true;
     if(typeof event.srcElement !== 'undefined' && event.srcElement.logicalname !== "") {
       this.selectedCountryCode = this.getCountryCode(event.srcElement.logicalname);
       if(this.selectedCountryCode !== '' && event.srcElement.logicalname.indexOf(this.selectedCountryCode) > 0){
@@ -87,6 +96,17 @@ export class DetailComponent implements OnInit, OnDestroy {
         case EventType.CLEAR:
           this.removeInformation();
           break;
+        case EventType.ADD_NOTE:
+          const countryIndex = this.findIndexOfCountryNote();
+          this.dialog.open(NoteDialogComponent,{
+            data: this.countryNotes[countryIndex],
+            width:'300px'
+          }).afterClosed().subscribe((note) => {
+            if(typeof note !== 'undefined'){
+              this.addNote(note);
+            } 
+          });
+          break;
       }
     })
 
@@ -99,7 +119,6 @@ export class DetailComponent implements OnInit, OnDestroy {
   }
 
   onClickExportTrade() {
-    this.showDialog = false;
     const index = this.findIndexOfCountry();
     if(index !== -1) {
       // If it is import value, change it to export.
@@ -119,7 +138,6 @@ export class DetailComponent implements OnInit, OnDestroy {
   }
 
   onClickImportTrade() {
-    this.showDialog = false;
     const index = this.findIndexOfCountry();
     if(index !== -1) {
       // If it is export value, change it to import.
@@ -136,9 +154,23 @@ export class DetailComponent implements OnInit, OnDestroy {
     this.geoChartData = [...this.geoChartData];
     this.calculateRatios();
   }
+  
+  addNote(note: string) {
+    const index = this.findIndexOfCountryNote();
+    if(index !== -1) {
+      // If it is export value, change it to import.
+      // If it is import, change the count.
+      this.countryNotes[index].note = note;
+      this.userService.sendUserCountryNotes(this.countryNotes);
+    } else {
+      this.countryNotes.push({name: this.selectedCountryCode, note});
+      this.userService.sendUserCountryNotes(this.countryNotes);
+    }
+
+    this.geoChartData = [...this.geoChartData];
+  }
 
   removeInformation() {
-    this.showDialog = false;
     const index = this.findIndexOfCountry();
 
     if(index !== -1){
@@ -165,6 +197,10 @@ export class DetailComponent implements OnInit, OnDestroy {
 
   findIndexOfCountry(): number {
     return this.geoChartData.findIndex((data) => data[0] === this.selectedCountryCode);
+  }
+
+  findIndexOfCountryNote(): number {
+    return this.countryNotes.findIndex((country) => country.name === this.selectedCountryCode);
   }
 
   ngOnDestroy(): void {

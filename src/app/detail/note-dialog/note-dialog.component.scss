@@ -1,0 +1,18 @@
+@import 'variables';
+
+.dialog-button {
+    padding: 4px 16px;
+    border: none;
+    margin: 0 8px;
+    border-radius: 5px;
+    color: white;
+    &.ok-button {
+        border: 1px solid $base-color2;
+        background: $base-color2;
+    }
+
+    &.cancel-button{
+        border: 1px solid #d0d0d0;
+        background: #d0d0d0;   
+    }
+}

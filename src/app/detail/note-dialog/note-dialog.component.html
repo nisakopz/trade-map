@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>Not Ekle</h1>
+<div mat-dialog-content>
+    <textarea  [(ngModel)]="note"></textarea>
+</div>
+<div mat-dialog-actions>
+  <button class="dialog-button cancel-button" (click)="onNoClick()">Vazgeç</button>
+  <button class="dialog-button ok-button" (click)="saveAndClose()" cdkFocusInitial>Kaydet</button>
+</div>

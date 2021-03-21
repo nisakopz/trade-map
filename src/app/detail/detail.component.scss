@@ -1,9 +1,9 @@
-agm-map {
+ @import 'variables'; 
+  
+  agm-map {
     height: 500px;
     width: 70%;
   }
-
-
   .menu {
     width: 140px;
     height: 100px;
@@ -21,8 +21,10 @@ agm-map {
     }
   }
 
-  .square-list {
-      list-style-type: square;
+  .list {
+      list-style-type: none;
+      padding-left: 0px;
+      margin-top: 15px;
       li {
         cursor: pointer;
 
@@ -30,6 +32,18 @@ agm-map {
           outline: none;
         }
       }
+      .item {
+        height: 35px;
+        &-icon {
+          background-color: $base-color;
+          height: 8px;
+          width: 8px;
+          display: inline-block;
+          border-radius: 10px;
+          margin: 0px 7px;
+        }
+      }
+ 
   }
 
 

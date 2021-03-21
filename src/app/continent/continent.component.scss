@@ -1,7 +1,9 @@
+@import 'variables';
 ul {
     list-style-type: none;
+    padding-left: 0px;
     li {
-        border: 1px solid orange;
+        border: 1px solid $base-color2;
         border-radius: 12px;
         padding: 10px 20px;
         box-shadow: 1px 5px 7px #e4e4e4;
@@ -22,3 +24,11 @@ ul {
     }
 }
 
+.return {
+    color: $base-color2;
+    font-size: 16px;
+    cursor: pointer;
+    &:focus{
+        outline: 0px;
+    }
+}

@@ -15,9 +15,12 @@ export class UserService {
     return this.http.get("/trades.json", {
     params: {id: sessionStorage.getItem('user')}
     });
-      // map((result) => {
-      //  return result ? Object.keys(result).map((key) => { return result[key] }) : null;
-      // }));
+  }
+
+  fetchCountryNotes(): Observable<any>{
+    return this.http.get("/notes.json", {
+    params: {id: sessionStorage.getItem('user')}
+    });
   }
 
 
@@ -28,6 +31,16 @@ export class UserService {
       allUserTradeDatas
     }
     this.http.patch("/trades.json",userTrades).subscribe();
+
+  }
+
+  sendUserCountryNotes(allCountryNotes: any[]){
+    const userName = sessionStorage.getItem('user');
+    const userTrades = {
+      id:userName,
+      allCountryNotes
+    }
+    this.http.patch("/notes.json",userTrades).subscribe();
 
   }
 }
