@@ -34,7 +34,6 @@ export class DetailComponent implements OnInit, OnDestroy {
     resolution: 'countries',
     region:'world',
     keepAspectRatio: true,
-    // width:800,
     height:500,
  };
 
@@ -72,6 +71,10 @@ export class DetailComponent implements OnInit, OnDestroy {
         this.foreignTradeService.allCountryNotes = this.countryNotes;
       }
     });
+
+    window.addEventListener('resize', (event) => {
+      this.geoChartData = [...this.geoChartData];
+    } , false);
   }
 
   onClickCountry(event) {

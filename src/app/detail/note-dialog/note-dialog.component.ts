@@ -11,7 +11,9 @@ export class NoteDialogComponent implements OnInit {
   constructor(public dialogRef: MatDialogRef<NoteDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data) {}
   ngOnInit(): void {
-    this.note = this.data.note;
+    if(typeof this.data !== 'undefined') {
+      this.note = this.data.note;
+    }
   }
 
   onNoClick(): void {

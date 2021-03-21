@@ -16,4 +16,13 @@
             </a>
         </div>
     </div>
+    <div class="mobile-search">
+        <input type="text" [(ngModel)]="searchText" placeholder="Ülke ara" (input)="onInputChange($event)"/> 
+        <span class="shbtradesearch search-icon"></span>
+        <ul *ngIf="showSearchBox">
+            <li  *ngFor="let country of allCountries | search: searchText" (click)="onClickCountry(country.code)" id="select-item">
+              {{country.name}}
+            </li>
+          </ul>
+    </div>
 </nav>

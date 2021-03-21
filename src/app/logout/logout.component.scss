@@ -9,6 +9,9 @@
     margin: 0 auto;
     color: white;
     background-color: $base-color;
+    @media screen and (max-width: 476px) {
+        width: 100%;
+    }
     .link {
         color:$base-color2;
         text-decoration: underline;
